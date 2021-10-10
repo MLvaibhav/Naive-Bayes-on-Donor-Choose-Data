@@ -842,7 +842,21 @@ plt.show()
 ![Screen Shot 2021-10-10 at 8 15 17 PM](https://user-images.githubusercontent.com/90976062/136700706-72ac776c-9a28-4213-83a1-7a5bbdf1de85.png)
 
 BEST HYPERPARAMETER K = 0.1
-Applyint k = 0.1 to model
+Applyint k = 0.1 to model and firstly just computing predicted output and then computing AUC plot
+
+```python
+from sklearn.naive_bayes import MultinomialNB
+
+# 2. instantiate a Multinomial Naive Bayes model
+nb = MultinomialNB(alpha=0.1, fit_prior=True, class_prior=[0.5,0.5])
+```
+```python
+nb.fit(X_tr, y_train)
+
+y_pred_class = nb.predict(X_te)
+```
+
+
 
 ```python
 from sklearn.metrics import roc_curve, auc
